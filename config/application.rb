@@ -15,9 +15,16 @@ require "action_cable/engine"
 Bundler.require(*Rails.groups)
 
 module UnterChallenge
-
   class Application < Rails::Application
     config.load_defaults 6.1
     config.api_only = true
+    config.generators do |generate|
+      generate.helper false
+      generate.assets false
+      generate.skip_routes false
+      generate.helper_specs false
+      generate.controller_specs false
+      generate.request_specs false
+    end
   end
 end
